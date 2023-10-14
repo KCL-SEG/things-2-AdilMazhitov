@@ -5,9 +5,10 @@ from django import forms
 from .models import Thing
 
 class ThingForm(forms.ModelForm):
+    name = forms.CharField(max_length=35)
     class Meta:
         model = Thing
-        fields =['name','description','quantity']
+        fields =['description','quantity']
         widgets = {
                     'description': forms.Textarea(),
                     'quantity': forms.NumberInput(

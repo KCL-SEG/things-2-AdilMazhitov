@@ -7,4 +7,4 @@ class Thing(models.Model):
     quantity = models.IntegerField(
         validators=[MinValueValidator(0),MaxValueValidator(50)]
     )
-    created_at = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField(auto_now_add=False)
