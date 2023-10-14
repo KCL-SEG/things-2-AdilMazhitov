@@ -3,10 +3,16 @@
 # Create your forms here.
 from django import forms
 from .models import Thing
-from django.core.validators import RegexValidator
 
 class ThingForm(forms.ModelForm):
+    name = forms.CharField(label = 'Name', max_length = 30)
     class Meta:
         model = Thing
-        fields =['name', 'description','quantity']
-        widgets = { 'description': forms.Textarea(), 'quantity': forms.NumberInput() }
+        fields =['description','quantity']
+        widgets = {'description': forms.Textarea(),
+                    'quantity': forms.NumberInput(
+                        attrs= {
+                            'max':'50',
+                            'min':'0',
+                        }),
+                }
