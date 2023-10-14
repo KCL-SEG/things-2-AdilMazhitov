@@ -1,0 +1,14 @@
+<html>
+    <head>
+        <title>Thing Form</title>
+    </head>
+
+    <body>
+        <P>Thing form</P>
+        <form action = "{% url 'thing_form' %}" method = "post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type = "submit" value = "Submit form">
+        </form>
+    </body>
+</html>
